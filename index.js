@@ -1,5 +1,5 @@
 const toDosStore = ["Shopping", "Home work", "Go to the gym"];
-
+// const toDosStore = [];
 // Write your code here
 
 class TodoApp {
@@ -26,9 +26,17 @@ class TodoApp {
       toDosStore.splice(idx[i] - 1, 1, arr[i]);
     }
   }
-}
 
-// console.log(RenderToDosListTemplate())
+  static RenderToDosListTemplate() {
+    if (toDosStore.length !== 0) {
+      for (const [i, item] of toDosStore.entries()) {
+        console.log(`${i + 1}- ${item}`);
+      }
+    } else {
+      console.log(`To do list is empty`);
+    }
+  }
+}
 
 TodoApp.insertTodo("test1");
 TodoApp.insertTodo("test2");
@@ -46,4 +54,5 @@ TodoApp.updateTodos(
   ["Meet with PR department", "By milk", "Check the internet connection"]
 );
 
-console.log(toDosStore);
+TodoApp.RenderToDosListTemplate();
+// toDosStore is empty ==> To do list is empty
